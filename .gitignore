@@ -5,3 +5,4 @@ models/research/deeplab/log
 models/research/deeplab/deeplabv3_pascal_train_aug_2018_01_04.tar.gz
 models/research/deeplab/deeplabv3_pascal_train_aug/*
 models/research/deeplab/deeplabv3_pascal_train_aug
+models/research/deeplab/nohup.out
