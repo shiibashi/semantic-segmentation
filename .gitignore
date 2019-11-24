@@ -1,0 +1,4 @@
+models/research/deeplab/datasets/pascal_voc_seg/*
+models/research/deeplab/log/*
+models/research/deeplab/deeplabv3_pascal_train_aug_2018_01_04.tar.gz
+models/research/deeplab/deeplabv3_pascal_train_aug/*
