@@ -26,6 +26,10 @@ cd ..
 wget http://download.tensorflow.org/models/deeplabv3_pascal_train_aug_2018_01_04.tar.gz
 tar -zxvf deeplabv3_pascal_train_aug_2018_01_04.tar.gz
 
+# For `xception_65`, use atrous_rates = [12, 24, 36] if output_stride = 8, or
+# rates = [6, 12, 18] if output_stride = 16. For `mobilenet_v2`, use None. Note
+# one could use different atrous_rates/output_stride during training/evaluation.
+
 python train.py\
   --train_logdir="log/train_log"\
   --log_steps=10\
@@ -34,7 +38,7 @@ python train.py\
   --model_variant="xception_65"\
   --save_summaries_images=true\
   --profile_logdir="log/profile_log"\
-  --training_number_of_steps=200\
+  --training_number_of_steps=100\
   --train_batch_size=8\
   --train_crop_size=513,513\
   --atrous_rates=6\
@@ -63,7 +67,8 @@ python eval.py \
     --dataset="pascal_voc_seg" \
     --checkpoint_dir="log/train_log"\
     --eval_logdir="log/eval_log"\
-    --dataset_dir="./datasets/pascal_voc_seg/tfrecord"
+    --dataset_dir="./datasets/pascal_voc_seg/tfrecord"\
+    --max_number_of_evaluations=1
 ```
 
 ```
