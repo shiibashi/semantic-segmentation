@@ -1,5 +1,12 @@
 https://github.com/tensorflow/models/blob/master/research/deeplab/g3doc/pascal.md
 
+# 1
+```
+tar -zxvf sample.tar.gz
+```
+
+# サンプル実行
+
 ```
 pip install --upgrade pip
 git clone https://github.com/tensorflow/models.git
