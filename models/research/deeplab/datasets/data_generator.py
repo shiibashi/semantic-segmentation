@@ -55,6 +55,9 @@ import tensorflow as tf
 from deeplab import common
 from deeplab import input_preprocess
 
+from deeplab.datasets import parameter
+
+
 # Named tuple to describe the dataset properties.
 DatasetDescriptor = collections.namedtuple(
     'DatasetDescriptor',
@@ -78,7 +81,6 @@ _CITYSCAPES_INFORMATION = DatasetDescriptor(
     num_classes=19,
     ignore_label=255,
 )
-
 _PASCAL_VOC_SEG_INFORMATION = DatasetDescriptor(
     splits_to_sizes={
         'train': 1464,
@@ -87,7 +89,7 @@ _PASCAL_VOC_SEG_INFORMATION = DatasetDescriptor(
         'val': 1449,
     },
     num_classes=21,
-    ignore_label=255,
+    ignore_label=255
 )
 
 _ADE20K_INFORMATION = DatasetDescriptor(
@@ -96,13 +98,21 @@ _ADE20K_INFORMATION = DatasetDescriptor(
         'val': 2000,  # num of samples in images/validation
     },
     num_classes=151,
-    ignore_label=0,
+    ignore_label=0
+)
+
+splits_to_sizes, num_classes, ignore_label = parameter.load_parameter()
+_SAMPLE_INFORMATION = DatasetDescriptor(
+    splits_to_sizes=splits_to_sizes,
+    num_classes=num_classes,
+    ignore_label=ignore_label
 )
 
 _DATASETS_INFORMATION = {
     'cityscapes': _CITYSCAPES_INFORMATION,
     'pascal_voc_seg': _PASCAL_VOC_SEG_INFORMATION,
     'ade20k': _ADE20K_INFORMATION,
+    "sample": _SAMPLE_INFORMATION
 }
 
 # Default file pattern of TFRecord of TensorFlow Example.
