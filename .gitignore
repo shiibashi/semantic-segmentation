@@ -9,3 +9,4 @@ models/research/deeplab/nohup.out
 .python-version
 *.pyc
 *.out
+jupyter/.ipynb_checkpoints/*
